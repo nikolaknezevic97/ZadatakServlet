@@ -56,6 +56,7 @@
 								<th>${proizvodjac.pib}</th>
 								<th>${proizvodjac.maticniBroj}</th>
 								<th>${proizvodjac.adresa}</th>
+<<<<<<< HEAD
 								<th>${proizvodjac.city.ptt_broj}</th>
 								<th>${proizvodjac.city.naziv}</th>
 								<th>
@@ -65,6 +66,10 @@
 									</c:url>
 									<a href="${urlView}">Pogledaj proizvodjaca</a>
 								</th>
+=======
+								<th>${proizvodjac.city}</th>
+								
+>>>>>>> 3e493d376f6f6597e63a87c6efe33ca3bb179291
 							</tr>
 						</c:forEach>
 					</tbody>
