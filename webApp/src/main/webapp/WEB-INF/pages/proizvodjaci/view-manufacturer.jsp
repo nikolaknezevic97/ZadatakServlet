@@ -56,17 +56,7 @@
 								<th>${proizvodjac.maticniBroj}</th>
 								<th>${proizvodjac.adresa}</th>
 								<th>${proizvodjac.city}</th>
-								<th>
-									<a href="/simplewebapp/application/city/view/${city.zipCode}">Pogledaj map</a>
-									<br/>
-									<a href="/simplewebapp/application/city/view?zipCode=${city.zipCode}">Pogledaj url</a>
-									<br/>
-									
-									<c:url var="urlView" value="/application/city/view">
-										<c:param name="zipCode" value="${city.zipCode}" ></c:param>
-									</c:url>
-									<a href="${urlView}">Pogledaj c-url</a>
-								</th>
+								
 							</tr>
 						</c:forEach>
 					</tbody>
