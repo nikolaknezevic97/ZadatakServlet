@@ -8,6 +8,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import it.engineering.web.webApp.domain.Proizvodjac;
 import it.engineering.web.webApp.domain.User;
 import it.engineering.web.webApp.storage.MyEntityManagerFactory;
 
@@ -40,17 +41,12 @@ public class ContextListener implements ServletContextListener {
     	@SuppressWarnings("serial")
 		EntityManager em = MyEntityManagerFactory.getEntityManagerFactory().createEntityManager();
     	List<User> users = em.createQuery("select u from User u", User.class).getResultList();
+    	List<Proizvodjac> proizvodjaci = em.createQuery("select p from Proizvodjac p", Proizvodjac.class).getResultList();
 		
-//		new ArrayList<User>() {
-//    		{
-//    			add(new User("admin","admin", "petar", "peric"));
-//    			add(new User("user","pass", "nikola", "nikolic"));
-//    			add(new User("test","test", "ana", "anic"));
-//    		}
-//    	};
-//    	
+    	
     	sc.setAttribute("users", users);
     	sce.getServletContext().setAttribute("login_users", new ArrayList<User>());
+    	sc.setAttribute("proizvodjaci", proizvodjaci);
     }
     
 	

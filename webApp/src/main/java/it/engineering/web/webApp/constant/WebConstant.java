@@ -10,4 +10,7 @@ public interface WebConstant {
 	public static final String PAGE_ERROR = "/WEB-INF/pages/error_user_login.jsp";
 	
 	public static final String PATH_LOGOUT = "/logout";
+	
+	public static final String PATH_VIEWMANUFACTURER = "/viewManufacturer";
+	public static final String PAGE_VIEWMANUFACTURER= "/WEB-INF/pages/proizvodjaci/view-manufacturer.jsp";
 }
