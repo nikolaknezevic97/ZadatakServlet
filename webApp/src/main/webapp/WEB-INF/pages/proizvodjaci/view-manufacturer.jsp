@@ -45,6 +45,7 @@
 							<th>PIB</th>
 							<th>MATICNI BROJ</th>
 							<th>ADRESA</th>
+							<th>PTT BROJ</th>
 							<th>GRAD</th>
 						</tr>
 					</thead>
@@ -55,17 +56,14 @@
 								<th>${proizvodjac.pib}</th>
 								<th>${proizvodjac.maticniBroj}</th>
 								<th>${proizvodjac.adresa}</th>
-								<th>${proizvodjac.city}</th>
+								<th>${proizvodjac.city.ptt_broj}</th>
+								<th>${proizvodjac.city.naziv}</th>
 								<th>
-									<a href="/simplewebapp/application/city/view/${city.zipCode}">Pogledaj map</a>
-									<br/>
-									<a href="/simplewebapp/application/city/view?zipCode=${city.zipCode}">Pogledaj url</a>
-									<br/>
 									
-									<c:url var="urlView" value="/application/city/view">
-										<c:param name="zipCode" value="${city.zipCode}" ></c:param>
+									<c:url var="urlView" value="/application/view">
+										<c:param name="idProizvodjaca" value="${proizvodjac.idProizvodjaca}" ></c:param>
 									</c:url>
-									<a href="${urlView}">Pogledaj c-url</a>
+									<a href="${urlView}">Pogledaj proizvodjaca</a>
 								</th>
 							</tr>
 						</c:forEach>

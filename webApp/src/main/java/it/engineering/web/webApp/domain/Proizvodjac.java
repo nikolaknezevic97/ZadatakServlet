@@ -26,6 +26,7 @@ public class Proizvodjac implements Serializable {
 	@ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
 	@JoinColumn(name="ptt_broj")
 	private City city;
+	
 
 	public Long getIdProizvodjaca() {
 		return idProizvodjaca;

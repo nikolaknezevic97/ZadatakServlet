@@ -21,8 +21,10 @@
 	<div id="menu">
 	<h2>Dobrodosli na meni na nasoj aplikaciji</h2>
 	<a href="/webApp/application/viewManufacturer">Prikaz svih proizvodjaca</a>
-	<a href="#">Unos novog proizvodjaca</a>
-	<a href="#">Prikaz svih proizvodjaca</a>
+	<a href="/webApp/application/newManufacturer">Unos novog proizvodjaca</a>
+	<a href="/webApp/application/deleteManufacturer">Izbrisi proizvodjaca</a>
+	<p>${massage}</p>
+	<p>${Poruka}</p>
 	</div>
 </body>
 </html>
