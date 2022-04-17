@@ -37,48 +37,30 @@
 <header>
 		<jsp:include page="/WEB-INF/pages/logout/logout.jsp" flush="true"/>
 	</header>
-	
 	<article>
 			<div id="tabela">
-			<h2>Lista svih proizvodjaca <a href="/webApp/application/menu">Nazad</a></h2>
+			<h2>Lista svih gradova <a href="/webApp/application/menu">Nazad</a></h2>
 				<table>
 					<thead>
 						<tr>
-							<th>ID_PROIZVODJACA</th>
-							<th>PIB</th>
-							<th>MATICNI BROJ</th>
-							<th>ADRESA</th>
 							<th>PTT BROJ</th>
-							<th>GRAD</th>
+							<th>NAZIV GRADA</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="proizvodjac" items="${proizvodjaci}">
+						<c:forEach var="city" items="${cities}">
 							<tr>
-								<th>${proizvodjac.idProizvodjaca}</th>
-								<th>${proizvodjac.pib}</th>
-								<th>${proizvodjac.maticniBroj}</th>
-								<th>${proizvodjac.adresa}</th>
-								<th>${proizvodjac.city.ptt_broj}</th>
-								<th>${proizvodjac.city.naziv}</th>
+								<th>${city.ptt_broj}</th>
+								<th>${city.naziv}</th>
 								<th>
-									
-									<c:url var="urlView" value="/application/view">
-										<c:param name="idProizvodjaca" value="${proizvodjac.idProizvodjaca}" ></c:param>
-									</c:url>
-									<a href="${urlView}">Pogledaj proizvodjaca</a>
+								<a href="/webApp/application/viewCity/view?ptt_broj=${city.ptt_broj}">Pogledaj detalje</a>
 								</th>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
-				<div>
-					<h1 style="color: blue; background-color:white">${Poruka}</h1>
-				</div>
 			</div>
 		</article>
-	
-	
 	
 	
 </body>

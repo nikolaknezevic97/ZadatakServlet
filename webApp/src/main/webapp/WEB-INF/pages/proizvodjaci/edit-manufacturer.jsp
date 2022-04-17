@@ -20,7 +20,7 @@
 		body{
 			margin:0;
 			padding: auto;
-			background-color: #add8e6;
+			background-color:#03254c ;
 		}
 		
 		#tabela{
@@ -31,7 +31,7 @@
 		}
 		
 		#formaLogin{
-			background-color: #03254c;
+			background-color: grey;
 			color: white;
 			width: 35%;
 			height: 40%;
@@ -57,7 +57,7 @@
 			font-size: 20px;
 		}
 		
-		#cancel{
+		#save{
 			
 			background-color: #Oda2ff;
 			width: 10%;
@@ -70,20 +70,20 @@
 		
 		}
 		
-		#cancel:hover{
+		#save:hover{
 			
 			color:white;
 			background-color: green;
 		
 		}
 		
-		#edit:hover{
+		#back:hover{
 			
 			color:white;
 			background-color: green;
 		
 		}
-		#edit{
+		#back{
 			
 			background-color: #Oda2ff;
 			width: 10%;
@@ -95,35 +95,36 @@
 			border-radius: 5px;
 		
 		}
+		
+		
+	
 	</style>
 
 </head>
 <body>
-<header>
+	<header>
 		<jsp:include page="/WEB-INF/pages/logout/logout.jsp" flush="true"/>
 	</header>
 	<div>
-						
-		
-		<form action="/webApp/application/edit" method="post" id="formaLogin">
-		<h1>Izabrani proizvodjac: </h1>
-					<label>IdProizvodjaca: </label> <input type="text" name="idProizvodjaca"
-						value="${proizvodjac.idProizvodjaca}" readonly="readonly" /> <br>
+		<form action=/webApp/application/save id="formaLogin">
+		<h1>Editovanje proizvodjaca</h1>
+		<label>IdProizvodjaca: </label> <input type="text" name="idProizvodjaca"
+						value="${proizvodjac.idProizvodjaca}"  readonly="readonly"/> <br>
 					<label>PIB</label> <input type="text" name="pib"
-						value="${proizvodjac.pib}" readonly="readonly" /> <br>
+						value="${proizvodjac.pib}"  /> <br>
 						<label>Maticni broj: </label> <input type="text" name="maticniBroj"
-						value="${proizvodjac.maticniBroj}" readonly="readonly" /> <br>
+						value="${proizvodjac.maticniBroj}"  /> <br>
 					<label>Adresa</label> <input type="text" name="adresa"
-						value="${proizvodjac.adresa}" readonly="readonly" /> <br>
-						<label>Ptt broj: </label> <input type="text" name="ptt_broj"
-						value="${proizvodjac.city.ptt_broj}" readonly="readonly" /> <br>						
+						value="${proizvodjac.adresa}" /> <br>
+						ZipCode:<select class="form-select" aria-label="Default select example" name="cityEdit">
+					<c:forEach items="${cities}" var="c">
+						<option value="${c.ptt_broj}" name="cityOption">${c.ptt_broj}</option>
 					
-						<input type="submit" value="Cancel" name="Cancel" id="cancel">			
-						
-						<input type="submit" value="Edit" name="Edit" id="edit">
-					
-	
-				</form>
+					</c:forEach>
+					</select><br>
+					<input type="submit" value="Save" name="Save" id="save"/>
+					<input type="submit" value="Back" name="Back" id="back"/>
+		</form>
 	</div>
 	
 	

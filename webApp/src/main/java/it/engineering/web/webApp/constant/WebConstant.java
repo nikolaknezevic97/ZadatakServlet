@@ -25,4 +25,31 @@ public interface WebConstant {
 	
 	public static final String PATH_CONFIRM = "/confirm";
 	public static final String PATH_DELETE = "/delete";
+	
+	public static final String PATH_CITY = "/viewCity";
+	public static final String PAGE_CITY = "/WEB-INF/pages/proizvodjaci/view-cities.jsp";
+	
+	public static final String PATH_CITY_DETAILS = "/viewCity/view";
+	public static final String PAGE_CITY_DETAILS = "/WEB-INF/pages/proizvodjaci/view-cities-detailes.jsp";
+	
+	public static final String PATH_EDIT = "/edit";
+	public static final String PAGE_EDIT = "/WEB-INF/pages/proizvodjaci/edit-manufacturer.jsp";
+	
+	public static final String PATH_SAVE = "/save";
+	public static final String PATH_LOGOUT_USER = "/logoutUser";
+	
+	public static final String PATH_CITY_EDITING = "/cityEditing";
+	public static final String PAGE_CITY_EDITING = "/WEB-INF/pages/proizvodjaci/city-edit.jsp";
+	
+	public static final String PATH_CITY_EDITING_SAVE = "/cityEditingSave";
+	
+	public static final String PATH_CITY_INSERT = "/InsertCity";
+	
+	public static final String PATH_CITY_VIEW_INSERT = "/viewCityInsert";
+	public static final String PAGE_CITY_VIEW_INSERT = "/WEB-INF/pages/proizvodjaci/city-insert.jsp";
+
+	public static final String PATH_CITY_DELETE = "/DeleteCity";
+	
+	public static final String PATH_CITY_VIEW_DELETE = "/viewCityDelete";
+	public static final String PAGE_CITY_VIEW_DELETE = "/WEB-INF/pages/proizvodjaci/city-delete.jsp";
 }

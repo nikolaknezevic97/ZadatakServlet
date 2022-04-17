@@ -22,14 +22,6 @@
 			padding: auto;
 			background-color: #add8e6;
 		}
-		
-		#tabela{
-			
-			position:absolute;
-			top:30%;
-			left:30%
-		}
-		
 		#formaLogin{
 			background-color: #03254c;
 			color: white;
@@ -60,11 +52,11 @@
 		#cancel{
 			
 			background-color: #Oda2ff;
-			width: 10%;
-			height: 10%;
+			width: 15%;
+			height: 40%;
 			position: relative;
-			top:10px;
-			right:10px;
+			top:25px;
+			right:50px;
 			border:none;
 			border-radius: 5px;
 		
@@ -77,24 +69,24 @@
 		
 		}
 		
-		#edit:hover{
+		#delete:hover{
 			
 			color:white;
 			background-color: green;
 		
 		}
-		#edit{
+		#delete{
 			
 			background-color: #Oda2ff;
-			width: 10%;
-			height: 10%;
+			width: 15%;
+			height: 40%;
 			position: relative;
 			top:10px;
-			left:10px;
+			left:50px;
 			border:none;
 			border-radius: 5px;
 		
-		}
+		}	
 	</style>
 
 </head>
@@ -102,31 +94,22 @@
 <header>
 		<jsp:include page="/WEB-INF/pages/logout/logout.jsp" flush="true"/>
 	</header>
-	<div>
-						
-		
-		<form action="/webApp/application/edit" method="post" id="formaLogin">
-		<h1>Izabrani proizvodjac: </h1>
-					<label>IdProizvodjaca: </label> <input type="text" name="idProizvodjaca"
-						value="${proizvodjac.idProizvodjaca}" readonly="readonly" /> <br>
-					<label>PIB</label> <input type="text" name="pib"
-						value="${proizvodjac.pib}" readonly="readonly" /> <br>
-						<label>Maticni broj: </label> <input type="text" name="maticniBroj"
-						value="${proizvodjac.maticniBroj}" readonly="readonly" /> <br>
-					<label>Adresa</label> <input type="text" name="adresa"
-						value="${proizvodjac.adresa}" readonly="readonly" /> <br>
-						<label>Ptt broj: </label> <input type="text" name="ptt_broj"
-						value="${proizvodjac.city.ptt_broj}" readonly="readonly" /> <br>						
+	<article>
+			<div>
+			<form action="/webApp/application/DeleteCity" id="formaLogin">
+					<h1>Obrisati grad</h1>
+					<label>Postanski broj</label> <input type="text" name="ptt_broj"/> 				
+					<div>
+						<input type="submit" value="Cancel" name="Cancel" id="cancel">
+					</div>
 					
-						<input type="submit" value="Cancel" name="Cancel" id="cancel">			
-						
-						<input type="submit" value="Edit" name="Edit" id="edit">
-					
-	
+					<div>
+						<input type="submit" value="Delete" name="Delete" id="delete">
+					</div>
+						<h2 style="color:red;">${poruka}</h2>
 				</form>
-	</div>
-	
-	
+			</div>
+		</article>
 	
 	
 </body>

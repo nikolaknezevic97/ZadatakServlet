@@ -9,24 +9,33 @@ import it.engineering.web.webApp.action.AbstractAction;
 import it.engineering.web.webApp.constant.WebConstant;
 import it.engineering.web.webApp.domain.Proizvodjac;
 
-public class ViewManufacturerDetails extends AbstractAction {
+public class EditMAnufacturerAction extends AbstractAction {
 
 	@Override
 	public String executeRequest(HttpServletRequest request, HttpServletResponse response) {
 		request.setAttribute("proizvodjac", ManufacturerStorage.getInstance().getProizvodjac());
 		Proizvodjac proizvodjac = getProizvodjac(Long.parseLong(request.getParameter("idProizvodjaca")), request);
-		
-		if (proizvodjac!=null) {
+		String edit = request.getParameter("Edit");
+		if(edit != null && proizvodjac!=null)
+		{
+			Long idProizvodjaca = Long.parseLong(request.getParameter("idProizvodjaca"));
+			String pib = request.getParameter("pib");
+			String maticniBroj = request.getParameter("maticniBroj");
+			String adresa = request.getParameter("adresa");
+			String pttBoj = request.getParameter("ptt_broj");
+			
 			request.setAttribute("proizvodjac", proizvodjac);
-			return WebConstant.PAGE_VIEW;
+			
+			return WebConstant.PAGE_EDIT;
 		}
-		else {
+		else
+		{
 			request.setAttribute("proizvodjaci", ManufacturerStorage.getInstance().getProizvodjac());
 			return WebConstant.PAGE_VIEWMANUFACTURER;
 		}
 		
 	}
-
+	
 	private Proizvodjac getProizvodjac(long idProizvodjaca, HttpServletRequest request) {
 		
 		List<Proizvodjac> proizvodjaci =(List<Proizvodjac>) request.getServletContext().getAttribute("proizvodjaci");		

@@ -18,17 +18,22 @@ public class LoginPostAction  extends AbstractAction{
 	@Override
 	public String executeRequest(HttpServletRequest request, HttpServletResponse response) {
 		
-		User user = login(request);
+		
+		User user = login(request);		
+		List<User> loginUsers = (List<User>) request.getServletContext().getAttribute("login_users");
 		boolean indicator = false;
-		if (user!=null) {
-			List<User> loginUsers = (List<User>) request.getServletContext().getAttribute("login_users");
+		if (user!=null) {			
 						
 			if(!loginUsers.contains(user))
 			{
 				indicator = true;
 				loginUsers.add(user);
-				System.out.println("Login user:"+loginUsers);
+				
 			}
+
+			HttpSession session = request.getSession(true);
+			User loginUserSession  = user.clone();
+			session.setAttribute("loginUserSession", loginUserSession);
 				
 			if(indicator) {	
 				
@@ -40,7 +45,7 @@ public class LoginPostAction  extends AbstractAction{
 				return WebConstant.PAGE_ERROR;
 			}
 			
-		}else {
+		}else{
 			
 			request.setAttribute("error_message", "Korisnik ne postoji!");
 			return WebConstant.PAGE_INDEX;
