@@ -20,43 +20,45 @@ public class NewManufacturerAction extends AbstractAction {
 		boolean counter = false;
 		
 		String submit = request.getParameter("Submit");
+		String nazad = request.getParameter("Nazad");
 		EntityManager em = MyEntityManagerFactory.getEntityManagerFactory().createEntityManager();
+		List<Proizvodjac> priozvodjaci = ManufacturerStorage.getInstance().getProizvodjac();
 		if(submit != null)
 		{
 			Long idProizvodjaca = Long.parseLong(request.getParameter("idProizvodjaca"));
 			String pib = request.getParameter("pib");
 			String maticniBroj = request.getParameter("maticniBroj");
 			String adresa = request.getParameter("Adresa");
-			Long pttBroj = Long.parseLong(request.getParameter("pttBroj"));
-			String nazivGrada = request.getParameter("nazivGrada");
-			
-			City city = new City();
-			city.setPtt_broj(pttBroj);
-			city.setNaziv(nazivGrada);
+			Long pttBroj = Long.parseLong(request.getParameter("cityPtt"));			
 			
 			Proizvodjac proizvodjac = new Proizvodjac();
 			proizvodjac.setIdProizvodjaca(idProizvodjaca);
 			proizvodjac.setPib(pib);
 			proizvodjac.setMaticniBroj(maticniBroj);
-			proizvodjac.setAdresa(adresa);
-			proizvodjac.setCity(city);
-			
+			proizvodjac.setAdresa(adresa);			
 			
 			em.getTransaction().begin();
 			Proizvodjac postojeciProizvodjac = em.find(Proizvodjac.class, proizvodjac.getIdProizvodjaca());
+			City postojeciGrad = em.find(City.class, pttBroj);
+			System.out.println(postojeciGrad);
 			if(postojeciProizvodjac!=null)
 			{
 				request.setAttribute("poruka","Proizvodjac vec postoji");
 			}
 			else
-				
-			{
-				em.persist(proizvodjac);
-				em.getTransaction().commit();
-				counter = true;
-				
+			if(postojeciGrad != null && postojeciProizvodjac == null)
+			{				
+					proizvodjac.setCity(postojeciGrad);
+					em.persist(proizvodjac);
+					em.getTransaction().commit();
+					counter = true;
 			}
 			
+		}
+		else 
+		if(nazad!=null)
+		{
+			return WebConstant.PAGE_MENU;
 		}
 		
 		if(counter == true) {

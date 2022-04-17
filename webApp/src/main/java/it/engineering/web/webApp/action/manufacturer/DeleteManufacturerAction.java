@@ -14,8 +14,9 @@ public class DeleteManufacturerAction extends AbstractAction {
 	@Override
 	public String executeRequest(HttpServletRequest request, HttpServletResponse response) {
 		boolean counter = false;
-		
+		request.setAttribute("proizvodjac", ManufacturerStorage.getInstance().getProizvodjac());
 		String delete = request.getParameter("Delete");
+		String back = request.getParameter("Back");
 		EntityManager em = MyEntityManagerFactory.getEntityManagerFactory().createEntityManager();
 		if(delete != null)
 		{
@@ -35,9 +36,14 @@ public class DeleteManufacturerAction extends AbstractAction {
 			}
 			
 		}
+		else
+			if(back != null)
+			{
+				return WebConstant.PAGE_MENU;
+			}
 		
 		if(counter == true) {
-			request.setAttribute("massage", "Upsesno obrisan proizvodjac");
+			request.setAttribute("Poruka", "Upsesno obrisan proizvodjac");
 			return WebConstant.PAGE_MENU;
 		
 		}

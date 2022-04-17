@@ -34,10 +34,13 @@
 
 </head>
 <body>
+<header>
+		<jsp:include page="/WEB-INF/pages/logout/logout.jsp" flush="true"/>
+	</header>
 	
 	<article>
 			<div id="tabela">
-			<h2>Lista svih proizvodjaca</h2>
+			<h2>Lista svih proizvodjaca <a href="/webApp/application/menu">Nazad</a></h2>
 				<table>
 					<thead>
 						<tr>
@@ -74,9 +77,12 @@
 						</c:forEach>
 					</tbody>
 				</table>
+				<div>
+					<h1 style="color: blue; background-color:white">${Poruka}</h1>
+				</div>
 			</div>
 		</article>
-	</main>
+	
 	
 	
 	
