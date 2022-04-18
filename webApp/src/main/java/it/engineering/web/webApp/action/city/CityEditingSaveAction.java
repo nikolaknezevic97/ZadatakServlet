@@ -17,7 +17,7 @@ public class CityEditingSaveAction extends AbstractAction {
 	public String executeRequest(HttpServletRequest request, HttpServletResponse response) {
 		
 		String save = request.getParameter("Save");
-		String cancel = request.getParameter("Back");
+		String cancel = request.getParameter("Cancel");
 		EntityManager em = MyEntityManagerFactory.getEntityManagerFactory().createEntityManager();
 		
 		if(save != null)
