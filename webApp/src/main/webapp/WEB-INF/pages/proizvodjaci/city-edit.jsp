@@ -108,7 +108,7 @@
 					</div>
 					
 					<div>
-						<input type="submit" value="Save" name="Save" id="save">
+						<input type="submit" value="Confirm" name="Save" id="save">
 					</div>
 					<h2 style="color:red;">${Poruka}</h2>
 				</form>
