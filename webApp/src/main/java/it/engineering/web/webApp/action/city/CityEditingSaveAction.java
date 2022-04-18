@@ -24,7 +24,7 @@ public class CityEditingSaveAction extends AbstractAction {
 		{
 			Long pttBroj = Long.parseLong(request.getParameter("ptt_broj"));
 			String naziv = request.getParameter("name");
-			int br = 0;
+		
 			City city = new City();
 			city.setPtt_broj(pttBroj);
 			city.setNaziv(naziv);
